@@ -5,6 +5,7 @@ const Home = () => {
   // let name = "mario";
   const [blogs, setBlogs] = useState(null);
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => {
@@ -16,11 +17,18 @@ const Home = () => {
   useEffect(() => {
     fetch("http://localhost:5789/blogs")
       .then((res) => {
+        if (!res.ok) {
+          throw Error("Could not fetch the data for that resource");
+        }
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setBlogs(data);
+        setIsPending(false);
+        setError(null);
+      })
+      .catch((e) => {
+        setError(e.messaga);
         setIsPending(false);
       });
   }, []);
@@ -32,6 +40,7 @@ const Home = () => {
       {blogs && (
         <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
       )}
+      {error && <div>{error}</div>}
     </div>
   );
 };
