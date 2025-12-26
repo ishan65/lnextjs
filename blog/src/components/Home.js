@@ -4,6 +4,7 @@ import BlogList from "./BlogList";
 const Home = () => {
   // let name = "mario";
   const [blogs, setBlogs] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => {
@@ -20,12 +21,14 @@ const Home = () => {
       .then((data) => {
         console.log(data);
         setBlogs(data);
+        setIsPending(false);
       });
   }, []);
 
   return (
     <div className="home">
       <h2>Home Page</h2>
+      {isPending && <div>Loading...</div>}
       {blogs && (
         <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
       )}
