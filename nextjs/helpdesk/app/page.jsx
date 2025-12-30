@@ -3,5 +3,7 @@ export default function Home() {
     <main>
       <h2>Dashboard</h2>
     </main>
-  )
+  );
 }
+
+// about.jsx -> /about
