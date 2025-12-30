@@ -1,26 +1,39 @@
-blog/node_modules
-blog/node_modules/*
-
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+blog/node_modules
+nextjs/helpdesk/node_modules
+blog/node_modules/*
+nextjs/helpdesk/node_modules/*
 
 # dependencies
-blog/node_modules
-blog/.pnp
-blog/.pnp.js
+/node_modules
+nextjs/helpdesk/.pnp
+nextjs/helpdesk.pnp.js
 
 # testing
-blog/coverage
+nextjs/helpdesk/coverage
+
+# next.js
+nextjs/helpdesk/.next/
+nextjs/helpdesk/out/
 
 # production
-blog/build
+nextjs/helpdesk/build
 
 # misc
-blog/.DS_Store
-blog/.env.local
-blog/.env.development.local
-blog/.env.test.local
-blog/.env.production.local
+nextjs/helpdesk.DS_Store
+nextjs/helpdesk*.pem
 
-blog/npm-debug.log*
-blog/yarn-debug.log*
-blog/yarn-error.log*
+# debug
+nextjs/helpdesknpm-debug.log*
+nextjs/helpdeskyarn-debug.log*
+nextjs/helpdeskyarn-error.log*
+
+# local env files
+nextjs/helpdesk.env*.local
+
+# vercel
+nextjs/helpdesk.vercel
+
+# typescript
+nextjs/helpdesk*.tsbuildinfo
+nextjs/helpdesknext-env.d.ts
